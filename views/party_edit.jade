@@ -1,0 +1,41 @@
+h1 Edit #{player._id}
+
+form(name='edit_player',method='post',action='')
+  h2 Stats
+  
+  div HP: 
+    input#hp(type='text',name='hp',value=player.hp)
+  div Spd: 
+    input#spd(type='text',name='spd',value=player.spd)
+  div Init: 
+    input#init(type='text',name='init',value=player.init)
+  div STR: 
+    input#str(type='text',name='str',value=player.str)
+  div CON: 
+    input#con(type='text',name='con',value=player.con)
+  div DEX: 
+    input#dex(type='text',name='dex',value=player.dex)
+  div INT: 
+    input#int(type='text',name='int',value=player.int)
+  div WIS: 
+    input#wis(type='text',name='wis',value=player.wis)
+  div CHA: 
+    input#cha(type='text',name='cha',value=player.cha)
+  div AC: 
+    input#ac(type='text',name='ac',value=player.ac)
+  div Fort: 
+    input#fort(type='text',name='fort',value=player.fort)
+  div Reflex: 
+    input#ref(type='text',name='ref',value=player.ref)
+  div Will: 
+    input#will(type='text',name='will',value=player.will)
+  div Passive Insight: 
+    input#passivei(type='text',name='passivei',value=player.passive.insight)
+  div Passive Perception: 
+    input#passivep(type='text',name='passivep',value=player.passive.perception)
+
+  h2 Skills
+
+  div Acrobatics: 
+    input#acrobatics(type='text',name='acrobatics',value=player.skills.acrobatics.check)
+    input#acrobatics_trained(type='checkbox',name='acrobatics_trained',value=player.skills.acrobatics.trained)

@@ -1,0 +1,9 @@
+h1 Party listing
+
+- if(typeof players !== 'undefined')
+  ul
+  - for(var p in players)
+    li
+      a(href='/party/#{players[p]._id}') #{players[p]._id}
+- else
+  div No players found

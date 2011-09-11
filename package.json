@@ -1,0 +1,12 @@
+{
+  "name": "dnd",
+  "description": "D&D 4e battle manager",
+  "version": "0.1.0",
+  "author": "gatesvp",
+  "dependencies": {
+    "mongodb": "~0.9.6-15",
+    "express": "~2.4.6",
+    "jade": "~0.15.4"
+  },
+  "devDependencies": {}
+}
