@@ -25,7 +25,7 @@ module.exports.show = function(mongodb, mongourl, id, req, res, next){
 module.exports.create = function(mongodb, mongourl, req, res, next){
 
   var player = get_empty_player();
-  res.render('party_edit', { player: player, skills: skill_list })
+  res.render('party_edit', { player: player, skills: skills_list })
 
 }
 
@@ -47,7 +47,7 @@ module.exports.edit = function(mongodb, mongourl, id, req, res, next){
       /* save the change and re-render the page */
       party.update({_id: id}, {$set: update}, {safe:true, upsert:true}, function(err, doc) {
         party.findOne({_id: id}, function(err, player){
-          res.render('party_edit', { player: player, skills: skill_list });
+          res.render('party_edit', { player: player, skills: skills_list });
           conn.close();
         });
       });
@@ -57,7 +57,7 @@ module.exports.edit = function(mongodb, mongourl, id, req, res, next){
 
 get_empty_player = function(){
   var player = { level:1, race: 'human', class: 'unknown', hp: 30, spd: 6, init: 6,
-    str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10, ac: 15, fort: 15, ref: 15, will: 15};
+    str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10, ac: 10, fort: 10, ref: 10, will: 10};
 
   player._id = null;
 
@@ -66,7 +66,7 @@ get_empty_player = function(){
   player.skills = {};
 
   for(skill in skills_list){
-    player.skills[skills_list[skill]] = {check: 10, trained: false};
+    player.skills[skills_list[skill]] = {check: 1, trained: false};
   }
 
   return player;

@@ -6,14 +6,6 @@
   visibility: hidden;
 }
 
-.shaded { background-color:#ddd; width: 180px; }
-.unshaded { background-color:#fff; width: 180px; }
-.stat { width: 20px; border: 0; }
-
-.skillname { float:left; width: 125px; }
-.skillcheck { float: left; text-align: right; }
-.skilltrained { float: left; text-align: right; }
-
 a.ovalbutton{
   background: transparent url('/images/oval-green-left.gif') no-repeat top left;
   display: block;
@@ -52,4 +44,14 @@ a.ovalbutton:hover span{ /* Hover state CSS */
   float:left;
   padding-left: 10px;
 }
+
+/* Player renderings */
+.shaded { background-color:#ddd; width: 180px; }
+.unshaded { background-color:#fff; width: 180px; }
+.stat { width: 20px; border: 0; }
+
+.skillname { float:left; width: 125px; }
+.skillcheck { float: left; text-align: right; }
+.skilltrained { float: left; text-align: right; }
+
 
