@@ -4,6 +4,12 @@ h1 Party listing
   ul
   - for(var p in players)
     li
-      a(href='/party/#{players[p]._id}') #{players[p]._id}
+      a(href='/party/edit/#{players[p]._id}') #{players[p]._id}
 - else
   div No players found
+
+br
+
+a(href='/party/create') Add party member
+
+

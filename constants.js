@@ -1,0 +1,1 @@
+module.exports.skills_list = ['acrobatics','arcana','athletics','bluff','diplomacy','dungeoneering','endurance','heal','history','insight','intimidate','nature','perception','religion','stealth','streetwise','thievery']

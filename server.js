@@ -22,9 +22,20 @@ app.get('/party', function(req, res, next){
   require('./party/listing.js').list(mongodb, mongourl, req, res, next);
 });
 
-app.get('/party/:id', function(req, res, next){
+app.get('/party/create', function(req, res, next){
+  require('./party/listing.js').create(mongodb, mongourl, req, res, next);
+});
+
+app.post('/party/create', function(req, res, next){
+  require('./party/listing.js').edit(mongodb, mongourl, req.body.id, req, res, next);
+})
+
+app.get('/party/edit/:id', function(req, res, next){
   require('./party/listing.js').show(mongodb, mongourl, req.params.id, req, res, next);
 });
 
+app.post('/party/edit/:id', function(req, res, next){
+  require('./party/listing.js').edit(mongodb, mongourl, req.params.id, req, res, next);
+});
 app.listen(default_port); 
 
