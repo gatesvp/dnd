@@ -48,10 +48,15 @@ a.ovalbutton:hover span{ /* Hover state CSS */
 /* Player renderings */
 .shaded { background-color:#ddd; width: 180px; }
 .unshaded { background-color:#fff; width: 180px; }
-.stat { width: 20px; border: 0; }
+.stat { width: 20px; border: 0; background-color: inherit; text-align:right; }
 
-.skillname { float:left; width: 125px; }
+.skillname { float:left; padding-left: 5px; width: 125px; }
 .skillcheck { float: left; text-align: right; }
 .skilltrained { float: left; text-align: right; }
 
+.plus_minus { background: url('/images/arrow_set.png') top left no-repeat; width: 12px; float:left; }
+.plus_minus.down { background-position: -12px 0px; }
+
+.card_wrapper { float:left; clear:both; }
+.skills_wrapper { float:left; }
 

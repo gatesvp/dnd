@@ -1,10 +1,21 @@
+include mixins
+
 h1 Party listing
 
 - if(typeof players !== 'undefined')
-  ul
-  - for(var p in players)
-    li
-      a(href='/party/edit/#{players[p]._id}') #{players[p]._id}
+  each player in players
+    div
+      div(style="float:left;")
+        a(href='/party/edit/#{player._id}') #{player._id} - #{player.race} #{player.class} (#{player.level})
+
+      .plus_minus.down(id='#{player._id}_dd')&nbsp;
+
+      .card_wrapper(id='#{player._id}_dd_card')
+        mixin stat_card(player)
+      .skills_wrapper(id='#{player._id}_dd_skills')
+        mixin skill_table(player,skills)
+      .clearfix
+
 - else
   div No players found
 
@@ -12,4 +23,17 @@ br
 
 a(href='/party/create') Add party member
 
+script(type='text/javascript')
+  $(function(){
+    $('.card_wrapper').hide();
+    $('.skills_wrapper').hide();
+    $('.plus_minus').click(expand_card);
+  });
+
+  expand_card = function(){
+    var id = this.id;
+    $('#'+id).toggleClass('down');
+    $('#'+id+'_card').slideToggle();
+    $('#'+id+'_skills').slideToggle();
+  }
 

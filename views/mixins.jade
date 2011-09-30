@@ -1,0 +1,80 @@
+mixin skill_inputs(player,skill)
+  .skillcheck
+    input.stat(id='#{skill}',type='text',value=player.skills[skill].check,name='skills.#{skill}.check')
+  .skilltrained &nbsp;&nbsp;
+    input(id='#{skill}_trained',type='checkbox',name='skills.#{skill}.trained',checked=player.skills[skill].trained)
+  .clearfix
+
+mixin skill_table(player,skills)
+  each skill,i in skills
+    - if(i%2==0)
+      .unshaded
+        .skillname #{skill}:
+        mixin skill_inputs(player,skill)
+    - else
+      .shaded
+        .skillname #{skill}:
+        mixin skill_inputs(player,skill)
+
+
+mixin ability_mod(score)
+  -if(score == 2 || score == 3)
+    span -4
+  -if(score == 4 || score == 5)
+    span -3
+  -if(score == 6 || score == 7)
+    span -2
+  -if(score == 8 || score == 9)
+    span -1
+  -if(score == 10 || score == 11)
+    span 0
+  -if(score == 12 || score == 13)
+    span +1
+  -if(score == 14 || score == 15)
+    span +2
+  -if(score == 16 || score == 17)
+    span +3
+  -if(score == 18 || score == 19)
+    span +4
+  -if(score == 20 || score == 21)
+    span +5
+  -if(score == 22 || score == 23)
+    span +6
+
+mixin stat_card(player)
+  div(style="position:relative;width:250px;")
+    img(src='/images/char_stats.png')
+    input#hp.stat(type='text',name='hp',value=player.hp,style="position:absolute;left:23px;top:48px;")
+    input#spd.stat(type='text',name='spd',value=player.spd,style="position:absolute;left:23px;top:125px;")
+    input#init.stat(type='text',name='init',value=player.init,style="position:absolute;left:23px;top:200px;")
+    input#str.stat(type='text',name='str',value=player.str,style="position:absolute;left:70px;top:26px;")
+    input#con.stat(type='text',name='con',value=player.con,style="position:absolute;left:70px;top:62px;")
+    input#dex.stat(type='text',name='dex',value=player.dex,style="position:absolute;left:70px;top:98px;")
+    input#int.stat(type='text',name='int',value=player.int,style="position:absolute;left:70px;top:132px;")
+    input#wis.stat(type='text',name='wis',value=player.wis,style="position:absolute;left:70px;top:170px;")
+    input#cha.stat(type='text',name='cha',value=player.cha,style="position:absolute;left:70px;top:205px;")
+    input#ac.stat(type='text',name='ac',value=player.ac,style="position:absolute;left:200px;top:34px;")
+    input#fort.stat(type='text',name='fort',value=player.fort,style="position:absolute;left:200px;top:93px;")
+    input#ref.stat(type='text',name='ref',value=player.ref,style="position:absolute;left:200px;top:152px;")
+    input#will.stat(type='text',name='will',value=player.will,style="position:absolute;left:200px;top:212px;")
+    input#passivei.stat(type='text',name='passive.insight',value=player.passive.insight,style="position:absolute;left:46px;top:250px;")
+    input#passivep.stat(type='text',name='passive.perception',value=player.passive.perception,style="position:absolute;left:46px;top:287px;")
+    input#surgevalue.stat(type='text',name='surges.value',value=player.surges.value,style="position:absolute;left:46px;top:325px;")
+    input#surgenumber.stat(type='text',name='surges.number',value=player.surges.number,style="position:absolute;left:46px;top:360px;")
+
+
+
+    div(style="position:absolute;left:157px;top:26px;")
+      mixin ability_mod(player.str)
+    div(style="position:absolute;left:157px;top:62px;")
+      mixin ability_mod(player.con)
+    div(style="position:absolute;left:157px;top:98px;")
+      mixin ability_mod(player.dex)
+    div(style="position:absolute;left:157px;top:132px;")
+      mixin ability_mod(player.int)
+    div(style="position:absolute;left:157px;top:170px;")
+      mixin ability_mod(player.wis)
+    div(style="position:absolute;left:157px;top:205px;")
+      mixin ability_mod(player.cha)
+
+

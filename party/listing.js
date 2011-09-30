@@ -4,7 +4,7 @@ module.exports.list = function(mongodb, mongourl, req, res, next){
   mongodb.connect(mongourl, function(err, conn) { 
     conn.collection('party', function(err, party){
       party.find({}).toArray(function(err, players){
-        res.render('party_list', { players: players });
+        res.render('party_list', { players: players, skills: skills_list });
         conn.close();
       });
     });
@@ -23,10 +23,8 @@ module.exports.show = function(mongodb, mongourl, id, req, res, next){
 }
 
 module.exports.create = function(mongodb, mongourl, req, res, next){
-
   var player = get_empty_player();
   res.render('party_edit', { player: player, skills: skills_list })
-
 }
 
 module.exports.edit = function(mongodb, mongourl, id, req, res, next){
@@ -61,10 +59,10 @@ get_empty_player = function(){
 
   player._id = null;
 
-  player.passive = { insight: 20, perception: 20 };
+  player.passive = { insight: 10, perception: 10 };
+  player.surges = { value: 10, number: 2 };
 
   player.skills = {};
-
   for(skill in skills_list){
     player.skills[skills_list[skill]] = {check: 1, trained: false};
   }
